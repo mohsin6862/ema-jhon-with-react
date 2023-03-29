@@ -3,11 +3,19 @@ import Product from '../Product/Product';
 
 const Card = () => {
     const [card ,setCard]=useState([]);
+    const [item ,setItem]=useState([])
     useEffect(()=>{
         fetch('https://raw.githubusercontent.com/ProgrammingHero1/ema-john-resources/main/fakeData/products.json')
         .then(res => res.json())
         .then(data => setCard(data))
     },[])
+
+    const addToCartBtn = (product)=>{
+        const newItems = [...item, product]
+        setItem (newItems)
+
+    }
+
     return (
         <>
         <div className='flex w-full max-w-7xl mx-auto mt-12  '>
@@ -15,13 +23,13 @@ const Card = () => {
                 
 
                 {
-                    card.map(product=> <Product product={product}></Product>)
+                    card.map(product=> <Product product={product} key={product.id} addToCartBtn={addToCartBtn}></Product>)
                 }
 
             </div>
-            <div className='w-[20%] '>
-                <h1 className='text-2xl font-bold text-center'>Order Summary</h1>
-
+            <div className='w-[20%]  '>
+                <h1 className='text-2xl font-bold text-center sticky top-0 '>Order Summary</h1>
+                <h3>Selected Items: {item.length}</h3>
             </div>
         </div>
             
