@@ -1,11 +1,12 @@
 import React from 'react';
-
+import image from '../images/Logo.svg'
 const Header = () => {
     return (
-        <div className='text-white'>
-            <div className="navbar bg-black">
+        <div className='text-white w-full max-w-7xl mx-auto shadow-2xl '>
+            <div className="navbar bg-black rounded">
                 <div className="flex-1">
-                    <a className="btn btn-ghost normal-case text-xl">Ema-Jhon</a>
+                   
+                    <img src={image} alt="logo" />
                 </div>
                 
                 <div className="flex-none">

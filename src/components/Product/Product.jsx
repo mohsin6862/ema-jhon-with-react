@@ -14,8 +14,8 @@ const Product = (props) => {
                     <h5 className='text-xl font-bold'>Price: ${price}</h5>
                     <p className='text-lg'>Manufacturer: {seller}</p>
                     <p className='text-lg'>Rating: {ratings}</p>
-                    <div className="card-actions justify-end absolute bottom-0 left-0 w-full  ">
-                        <button className="btn btn-primary ">Add To Cart</button>
+                    <div className="card-actions justify-end    ">
+                        <button className="btn btn-primary w-full ">Add To Cart</button>
                     </div>
                 </div>
                 
