@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import OrderSummary from '../OrderSummary/OrderSummary';
 import Product from '../Product/Product';
 
 const Card = () => {
@@ -27,9 +28,8 @@ const Card = () => {
                 }
 
             </div>
-            <div className='w-[20%]  '>
-                <h1 className='text-2xl font-bold text-center sticky top-0 '>Order Summary</h1>
-                <h3>Selected Items: {item.length}</h3>
+            <div className='w-[20%] bg-amber-200 rounded'>
+                <OrderSummary item={item}></OrderSummary>
             </div>
         </div>
             
