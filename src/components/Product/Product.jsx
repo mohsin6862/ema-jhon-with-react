@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Product = (props) => {
-    console.log(props.product)
+   
     const addToCartBtn = props.addToCartBtn
     const { img, name, price, seller, ratings
     } = props.product;
