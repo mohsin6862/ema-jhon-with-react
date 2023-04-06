@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import OrderSummary from '../OrderSummary/OrderSummary';
 import { useLoaderData } from 'react-router-dom';
 import OrderReview from '../OrderReview/OrderReview';
-import { removeFromDb } from '../Utilities/fakedb';
+import { deleteShoppingCart, removeFromDb } from '../Utilities/fakedb';
 
 const Orders = () => {
     const products = useLoaderData()
@@ -15,6 +15,11 @@ const Orders = () => {
 
     }
 
+    const clearCartBtn =()=>{
+        setCart([])
+        deleteShoppingCart()
+    }
+
     return (
         <div className='flex w-full max-w-7xl mx-auto mt-12  '>
             <div className='w-[80%] max-w-4xl mx-auto p-5'>
@@ -25,7 +30,7 @@ const Orders = () => {
             </div>
 
             <div className='w-[20%] bg-amber-200 rounded'>
-            <OrderSummary item={cart}></OrderSummary>
+            <OrderSummary item={cart} clearCartBtn={clearCartBtn } ></OrderSummary>
            
 
             </div>

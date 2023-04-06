@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import OrderSummary from '../OrderSummary/OrderSummary';
 import Product from '../Product/Product';
-import { addToDb, getShoppingCart } from '../Utilities/fakedb';
+import { addToDb, deleteShoppingCart, getShoppingCart } from '../Utilities/fakedb';
 const Card = () => {
     const [card ,setCard]=useState([]);
     const [item ,setItem]=useState([])
@@ -56,6 +56,11 @@ const Card = () => {
 
     }
 
+    const clearCartBtn =()=>{
+        setItem([])
+        deleteShoppingCart()
+    }
+
     return (
         <>
         <div className='flex w-full max-w-7xl mx-auto mt-12  '>
@@ -68,7 +73,7 @@ const Card = () => {
 
             </div>
             <div className='w-[20%] bg-amber-200 rounded'>
-                <OrderSummary item={item}></OrderSummary>
+                <OrderSummary item={item} clearCartBtn={clearCartBtn}></OrderSummary>
             </div>
         </div>
             

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faDeleteLeft, faTrash } from '@fortawesome/free-solid-svg-icons'
+import {  faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const OrderReview = ({pd,removeFromCartBtn}) => {
     console.log(pd)
@@ -9,7 +9,7 @@ const OrderReview = ({pd,removeFromCartBtn}) => {
     return (
         <div className='flex border-2 m-5'  >
             <div className=' items-center p-5 '>
-                <img className='w-32 h-32 ' src={img} alt="" />
+                <img className='w-40 h-32 ' src={img} alt="" />
 
             </div>
             
@@ -20,7 +20,7 @@ const OrderReview = ({pd,removeFromCartBtn}) => {
                 <h3 className='font-semibold'>Quantity: {quantity}</h3>
                </div>
                <div>
-               <button onClick={()=>removeFromCartBtn(id)} className='border-2 border-red-200 p-3 rounded-full bg-red-300 text-center hover:border-red-600'><FontAwesomeIcon className='text-4xl text-red-800 text-center' icon={faTrash} /></button>
+               <button onClick={()=>removeFromCartBtn(id)} className='border-2 border-red-200 p-3 rounded-full bg-red-300 text-center hover:border-red-600'><FontAwesomeIcon className='text-4xl text-red-800 text-center' icon={faTrashAlt} /></button>
                </div>
                </div>
         </div>

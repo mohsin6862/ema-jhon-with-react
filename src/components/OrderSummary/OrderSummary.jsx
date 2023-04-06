@@ -1,6 +1,8 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {  faCreditCard, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
-const OrderSummary = ({item}) => {
+const OrderSummary = ({item,clearCartBtn }) => {
 
     console.log(item)
     let total =0;
@@ -18,7 +20,7 @@ const OrderSummary = ({item}) => {
     const tax = total * 5 / 100;
     const grandTotal= total + shippingCost+ tax;
     return (
-        <div className='sticky top-0 rounded  '>
+        <div className='sticky top-0 rounded mb-5 '>
             <h1 className='text-2xl font-bold text-center mt-12 '>Order Summary</h1>
                <div className='ml-5 mt-8 text-lg font-semibold items-start'>
                <h3 >Selected Items: {quantity}</h3>
@@ -28,6 +30,15 @@ const OrderSummary = ({item}) => {
                <hr className='mt-3' />
                <h2 className=' font-bold mt-5'>Grand total: ${grandTotal.toFixed(2)}</h2>
                </div>
+<div className='m-2'>
+    
+<button onClick={clearCartBtn } className="btn  hover:bg-red-800 w-full mt-12 bg-red-600 border-red-600">Clear Cart  
+               <FontAwesomeIcon className='text-xl text-center ml-5' icon={faTrashAlt} />
+                            </button>
+               <button className="btn  w-full mt-5 bg-amber-600 border-amber-600 hover:bg-amber-700">Proceed To Checkout  
+               <FontAwesomeIcon className='text-xl text-center ml-5' icon={faCreditCard} />
+                            </button>
+</div>
         </div>
     );
 };
