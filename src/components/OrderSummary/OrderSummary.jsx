@@ -4,10 +4,15 @@ const OrderSummary = ({item}) => {
 
     console.log(item)
     let total =0;
+    let quantity = 0;
     let shippingCost = 0;
     for (const cart of item){
-        total = total + cart.price
+        // if(cart.quantity===0){
+        //     cart.quantity = 1
+        // }
+        total = total + cart.price * cart.quantity
         shippingCost = shippingCost + cart.shipping
+        quantity= quantity+ cart.quantity
     }
 
     const tax = total * 5 / 100;
@@ -16,7 +21,7 @@ const OrderSummary = ({item}) => {
         <div className='sticky top-0 rounded  '>
             <h1 className='text-2xl font-bold text-center mt-12 '>Order Summary</h1>
                <div className='ml-5 mt-8 text-lg font-semibold items-start'>
-               <h3 >Selected Items: {item.length}</h3>
+               <h3 >Selected Items: {quantity}</h3>
                <h3>Price: ${total}</h3>
                <h3>Shipping Cost: ${shippingCost}</h3>
                <h3>Tax: ${tax.toFixed(2)} </h3>

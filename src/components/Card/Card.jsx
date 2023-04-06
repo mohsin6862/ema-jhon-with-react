@@ -13,27 +13,43 @@ const Card = () => {
 
     useEffect(()=>{
         const storedCart = getShoppingCart()
+        console.log('product yoy :',card)
+        console.log(storedCart)
         const savedCart = [];
         for(const id in storedCart){
-            const addedCart = card.find(product=> card.id === id)
+            const addedProduct = card.find(product => product.id === id)
+            console.log("added on cart =",addedProduct)
 
-            if(addedCart){
+            if(addedProduct){
 
-                const quantity = storedCart[id];
-                addedCart.quantity= quantity;
+                const  quantity = storedCart[id];
+                addedProduct.quantity= quantity;
                 console.log(quantity)
-                savedCart.push(addedCart)
+                savedCart.push(addedProduct)
             }
         }
 
         setItem(savedCart);
+        console.log(savedCart)
 
 
 
     },[card])
 
     const addToCartBtn = (product)=>{
-        const newItems = [...item, product]
+        // const newItems = [...item, product]
+
+        let newItems=[];
+        const exists = item.find(pd => pd.id === product.id);
+        if(!exists){
+            product.quantity=1;
+            newItems= [...item,product]
+        }
+        else{
+            exists.quantity = exists.quantity+1;
+            const remaining = item.filter(pd=> pd.id !== product.id);
+            newItems= [...remaining,exists]
+        }
         setItem (newItems)
         addToDb(product.id)
 
