@@ -23,6 +23,7 @@ const OrderReview = ({pd,removeFromCartBtn}) => {
                <button onClick={()=>removeFromCartBtn(id)} className='border-2 border-red-200 p-3 rounded-full bg-red-300 text-center hover:border-red-600'><FontAwesomeIcon className='text-4xl text-red-800 text-center' icon={faTrashAlt} /></button>
                </div>
                </div>
+               
         </div>
     );
 };

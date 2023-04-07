@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react';
 import OrderSummary from '../OrderSummary/OrderSummary';
 import Product from '../Product/Product';
 import { addToDb, deleteShoppingCart, getShoppingCart } from '../Utilities/fakedb';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {  faArrowRight, faArrowRightArrowLeft, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+
+import { Link } from 'react-router-dom';
 const Card = () => {
     const [card ,setCard]=useState([]);
     const [item ,setItem]=useState([])
@@ -72,8 +77,16 @@ const Card = () => {
                 }
 
             </div>
-            <div className='w-[20%] bg-amber-200 rounded'>
-                <OrderSummary item={item} clearCartBtn={clearCartBtn}></OrderSummary>
+            <div className='w-[20%] bg-amber-200 rounded '>
+                <OrderSummary item={item} clearCartBtn={clearCartBtn}>
+                   <div className='m-2'>
+                   <Link to='/orders'>
+                   <button className="btn  w-full mt-5 bg-amber-600 border-amber-600 hover:bg-amber-700 ">Review Order
+                    <FontAwesomeIcon className='text-xl text-center ml-5 ' icon={faArrowRight} />
+                </button>
+                   </Link>
+                   </div>
+                    </OrderSummary>
             </div>
         </div>
             

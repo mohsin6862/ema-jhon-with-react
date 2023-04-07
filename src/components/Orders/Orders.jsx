@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import OrderSummary from '../OrderSummary/OrderSummary';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import OrderReview from '../OrderReview/OrderReview';
 import { deleteShoppingCart, removeFromDb } from '../Utilities/fakedb';
+import { faCreditCardAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCreditCard, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Orders = () => {
     const products = useLoaderData()
@@ -30,7 +33,15 @@ const Orders = () => {
             </div>
 
             <div className='w-[20%] bg-amber-200 rounded'>
-            <OrderSummary item={cart} clearCartBtn={clearCartBtn } ></OrderSummary>
+            <OrderSummary item={cart} clearCartBtn={clearCartBtn } >
+                 <div className='m-2'>    
+                <Link to='/checkout'>
+                <button className="btn  w-full mt-5 bg-amber-600 border-amber-600 hover:bg-amber-700">Proceed To Checkout
+                    <FontAwesomeIcon className='text-xl text-center ml-5' icon={faCreditCard} />
+                </button>
+                </Link>
+                 </div>
+                 </OrderSummary>
            
 
             </div>
