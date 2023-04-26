@@ -8,6 +8,7 @@ const AuthProvider = ({children}) => {
     const auth = getAuth(app);
 
     const [user, setUser]=useState(null)
+    const [loader,setLoader]=useState(true)
 
     const createUser =(email,password)=>{
         return createUserWithEmailAndPassword(auth,email,password)
@@ -22,7 +23,8 @@ const AuthProvider = ({children}) => {
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth , currentUser=>{
-            setUser(currentUser)
+            setUser(currentUser);
+            setLoader(false)
 
         })
         return ()=>{
@@ -35,6 +37,7 @@ const AuthProvider = ({children}) => {
         createUser,
         signIn,
         Logout,
+        loader,
        
     }
     return (
